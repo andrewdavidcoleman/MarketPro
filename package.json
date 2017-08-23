@@ -1,26 +1,19 @@
 {
-  "name": "marketpro",
+  "name": "project2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andrewdavidcoleman/MarketPro.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andrewdavidcoleman/MarketPro/issues"
-  },
-  "homepage": "https://github.com/andrewdavidcoleman/MarketPro#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
-    "mysql": "^2.14.1",
-    "sequelize": "^4.6.0"
+    "google-trends-api": "^4.1.0",
+    "method-override": "^2.3.9",
+    "mysql": "^2.14.1"
   }
 }
