@@ -12,18 +12,14 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // index route leads to landing page with salesperson selection
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.render(path.join(__dirname, ""));
   });
 
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
-  });
-
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  //dashboard leads to sales tracker page
+  app.get("/dashboard", function(req, res) {
+    res.render(path.join(__dirname, ""));
   });
 
 };
