@@ -14,12 +14,12 @@ module.exports = function(app) {
 
   // index route leads to landing page with salesperson selection
   app.get("/", function(req, res) {
-    res.render(path.join(__dirname, ""));
+    res.sendFile(path.join(__dirname, "../public/test.html"));
   });
 
   //dashboard leads to sales tracker page
   app.get("/dashboard", function(req, res) {
-    res.render(path.join(__dirname, ""));
+    res.sendFile(path.join(__dirname, "../public/test.html"));
   });
 
 };
