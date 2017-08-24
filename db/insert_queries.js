@@ -32,11 +32,11 @@ function insertQuery(){
     	var rankedKeywordOne = ranked[0]; //Rest of object is the same info just formatted differently
 
       Object.keys(rankedKeywordOne).forEach(function(key) {
-     		var arrayOne = rankedKeywordOne[key];	
-     		Object.keys(arrayOne).forEach(function(key) {	
+     		var arrayOne = rankedKeywordOne[key];
+     		Object.keys(arrayOne).forEach(function(key) {
      			var key1 = arrayOne[key];
           var query = connection.query(
-            "INSERT INTO craft_beer SET ?", 
+            "INSERT INTO craft_beer SET ?",
             {
               query: key1["query"],
               value: key1["value"]
@@ -61,9 +61,9 @@ function insertQuery(){
 /*
 	Google trends does not allow to leave the search field blank to just search for the top queries.
 
-	Sells data in a company only shows what a customer bought from the company, not what they 
-	searched online to buy later at another store. 
-*/	
+	Sells data in a company only shows what a customer bought from the company, not what they
+	searched online to buy later at another store.
+*/
 
 // googleTrends.interestOverTime({keyword: 'i7-7700k'})
 // .then((res) => {
@@ -93,7 +93,7 @@ function insertCity(){
           bracketsRemoved.forEach(function(value){
             console.log(keyValue["geoName"]);
             var query = connection.query(
-              "INSERT INTO craft_beer_cities SET ?", 
+              "INSERT INTO craft_beer_cities SET ?",
               {
                 city: keyValue["geoName"],
                 value: value
