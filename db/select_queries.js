@@ -21,7 +21,7 @@ function top5Queries(){
 		"SELECT query, value from craft_beer ORDER BY value DESC LIMIT 5 ",
 		function(err, res){
 			if(err) throw err;
-			Object.keys(res).forEach(function(key) {	
+			Object.keys(res).forEach(function(key) {
 				var showResults = res[key];
 				console.log(showResults["query"] + " " + showResults["value"] + "\n");
 			});
@@ -35,7 +35,7 @@ function top5Cities(){
 		"SELECT DISTINCT city, value from craft_beer_cities ORDER BY value DESC LIMIT 5 ",
 		function(err, res){
 			if(err) throw err;
-			Object.keys(res).forEach(function(key) {	
+			Object.keys(res).forEach(function(key) {
 				var showResults = res[key];
 				console.log(showResults["city"] + " " + showResults["value"] + "\n");
 			});

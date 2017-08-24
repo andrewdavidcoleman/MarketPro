@@ -1,0 +1,16 @@
+-- DROP DATABASE IF EXISTS MarketPro_db;
+--
+-- CREATE DATABASE MarketPro_db;
+--
+-- USE MarketPro_db;
+--
+-- DROP TABLE IF EXISTS sales;
+--
+-- CREATE TABLE sales(
+-- 	 id INTEGER(11) AUTO_INCREMENT NOT NULL,
+-- 	 salesperson VARCHAR(40) NOT NULL,
+-- 	 metric1 INTEGER(100) NOT NULL,
+--    metric2 INTEGER(100) NOT NULL,
+--    metric3 INTEGER(100) NOT NULL,
+-- 	 PRIMARY KEY(id)
+-- );
