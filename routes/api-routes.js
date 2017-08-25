@@ -50,7 +50,7 @@ module.exports = function(app) {
   app.put("/api/sales", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Todo.update({
+    db.Sales.update({
       metric1: res.body.metric1 + req.body.metric1,
       metric2: res.body.metric2 + req.body.metric2,
       metric3: res.body.metric3 + req.body.metric3
