@@ -8,6 +8,7 @@ module.exports = function(app) {
   app.get("/api/sales", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.Sales.findAll({}).then(function(dbSales) {
+      if (err) throw err;
       // We have access to the todos as an argument inside of the callback function
       res.json(dbSales);
     });
