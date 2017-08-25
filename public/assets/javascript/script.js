@@ -6,13 +6,12 @@ var queryURL = "https://market-pro-2017.herokuapp.com/api/sales";
       url: queryURL,
       type: 'GET',
       crossDomain: true,
-      dataType: 'jsonp',
-      success: function() { alert("Success"); },
+      dataType: 'json',
       error: function(error) {
-         alert('Failed!');
-         console.log(error); 
+         console.log('Failed!');
+         console.log(error);
        }
     })
-    // .done(function(response) {
-    //   console.log(response);
-    // });
+    .done(function(response) {
+      console.log(response);
+    });
