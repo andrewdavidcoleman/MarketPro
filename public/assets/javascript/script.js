@@ -9,8 +9,7 @@ $.ajax({
   crossDomain: true,
   dataType: 'json',
   error: function(error) {
-     console.log('Failed!');
-     console.log(error);
+     console.log('***error***:' + error);
    }
 })
 .done(function(response) {
@@ -20,4 +19,36 @@ $.ajax({
   $(".metric3").html(response[0].metric3)
 });
 
-$(".metric1").html()
+$(".submit").click(function() {
+
+  event.preventDefault()
+
+  function newSale() {
+    var sale = {
+     salesperson: $(".name-input").val(),
+     metric1: $(".metric1-input").val(),
+     metric2: $(".metric2-input").val(),
+     metric3: $(".metric3-input").val()
+    };
+
+    $.ajax({
+        url: 'http://localhost:3000/api/sales',
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.msg);;
+        },
+        data: sale
+    });
+  }
+
+  newSale();
+
+});
+
+
+
+
+
+
+// bottom

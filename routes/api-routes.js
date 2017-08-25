@@ -28,39 +28,39 @@ module.exports = function(app) {
   });
 
 
-// =======DELETE is not part of requirements but we can activate this features if we have extra time========
+  // =======DELETE and PUT are not part of requirements but we can activate these features if we have extra time========
 
 
 
-//   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-//   // req.params.id
-//   app.delete("/api/sales/:id", function(req, res) {
-//     // We just have to specify which todo we want to destroy with "where"
-//     db.Todo.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbTodo) {
-//       res.json(dbTodo);
-//     });
-//
-//   });
-//
-  // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/sales", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Sales.update({
-      metric1: res.body.metric1 + req.body.metric1,
-      metric2: res.body.metric2 + req.body.metric2,
-      metric3: res.body.metric3 + req.body.metric3
-    }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbSales) {
-      res.json(dbSales);
-    });
-  });
+  // // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  // // req.params.id
+  // app.delete("/api/sales/:id", function(req, res) {
+  //   // We just have to specify which todo we want to destroy with "where"
+  //   db.Todo.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(dbTodo) {
+  //     res.json(dbTodo);
+  //   });
+  //
+  // });
+  //
+  // // PUT route for updating sales. We can get the updated sales data from req.body
+  // app.put("/api/sales", function(req, res) {
+  //   // Update takes in an object describing the properties we want to update, and
+  //   // we use where to describe which objects we want to update
+  //   db.Sales.update({
+  //     metric1: res.body.metric1 + req.body.metric1,
+  //     metric2: res.body.metric2 + req.body.metric2,
+  //     metric3: res.body.metric3 + req.body.metric3
+  //   }, {
+  //     where: {
+  //       id: req.body.id
+  //     }
+  //   }).then(function(dbSales) {
+  //     res.json(dbSales);
+  //   });
+  // });
 
 };
