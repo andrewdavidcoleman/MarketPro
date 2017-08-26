@@ -19,9 +19,9 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with the columns from the DB
     db.Sales.create({
       salesperson: req.body.salesperson,
-      metric1: 0,
-      metric2: 0,
-      metric3: 0
+      metric1: req.body.metric1,
+      metric2: req.body.metric2,
+      metric3: req.body.metric3
     }).then(function(dbSales) {
       res.json(dbSales);
     });

@@ -15,8 +15,8 @@ $.ajax({
 .done(function(response) {
   console.log(response);
   $(".metric1").html("<p>" + response[0].metric1 + "</p>");
-  $(".metric2").html(response[0].metric2)
-  $(".metric3").html(response[0].metric3)
+  $(".metric2").html("<p>" + response[0].metric2 + "</p>")
+  $(".metric3").html("<p>" + response[0].metric3 + "</p>")
 });
 
 $(".submit").click(function() {
@@ -35,8 +35,8 @@ $(".submit").click(function() {
         url: 'http://localhost:3000/api/sales',
         type: 'post',
         dataType: 'json',
-        success: function (data) {
-            console.log(data.msg);;
+        success: function(data) {
+            console.log(data);;
         },
         data: sale
     });
