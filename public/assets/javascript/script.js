@@ -1,54 +1,117 @@
-console.log("letsago");
+$(document).ready(function(){
 
 // var queryURL = "https://market-pro-2017.herokuapp.com/api/sales";
 var queryURL = "http://localhost:3000/api/sales";
 
-$.ajax({
-  url: queryURL,
-  type: 'GET',
-  crossDomain: true,
-  dataType: 'json',
-  error: function(error) {
-     console.log('***error***:' + error);
-   }
-})
-.done(function(response) {
-  console.log(response);
-  $(".metric1").html("<p>" + response[0].metric1 + "</p>");
-  $(".metric2").html(response[0].metric2)
-  $(".metric3").html(response[0].metric3)
-});
 
-$(".submit").click(function() {
+// $.ajax({
+//   url: queryURL,
+//   type: 'GET',
+//   crossDomain: true,
+//   dataType: 'json',
+//   error: function(error) {
+//      console.log('***error***:' + error);
+//    }
+// })
+// .done(function(response) {
+//   // console.log(response);
+// //   $(".metric1").html("<p>" + response[0].metric1 + "</p>");
+// //   $(".metric2").html(response[0].metric2)
+// //   $(".metric3").html(response[0].metric3)
+//       Object.keys(response).forEach(function(key) {
+//           var saleObj = response[key]; 
+//           console.log("^^^^^^"+saleObj["salesperson"]);
+//           $("#running_employee_total").append("<p>"+saleObj["salesperson"]+"</p>");
+//           // $("running_employee_total").html("<p>" + saleObj[key]+ "</p>");
+//           // no data is going to metric columns, test to see if input boxes are submitting a value
+//           //console.log("@@@@@" + saleObj);
+//       });
+// });
 
-  event.preventDefault()
+
+
+$("#submitSales").on("submit", function() {
+
+  event.preventDefault();
+  var employeeNameInput = $(".name-input").val().trim();
+  //metric colums cannot be emplty and must be an integer or sequelize error will be thrown
+  // html required checks for empty
+  var a = $(".metric1-input").val().trim();
+  var b = $(".metric2-input").val().trim();
+  var c = $(".metric2-input").val().trim();
+
+  if (isNaN(a) || isNaN(b) || isNaN(c) ){
+    return false; 
+  } else {
 
   function newSale() {
+
     var sale = {
-     salesperson: $(".name-input").val(),
-     metric1: $(".metric1-input").val(),
-     metric2: $(".metric2-input").val(),
-     metric3: $(".metric3-input").val()
+     salesperson: $(".name-input").val().trim(),
+     metric1: $(".metric1-input").val().trim(),
+     metric2: $(".metric2-input").val().trim(),
+     metric3: $(".metric3-input").val().trim()
     };
+
+
 
     $.ajax({
         url: 'http://localhost:3000/api/sales',
         type: 'post',
         dataType: 'json',
+        data: sale,
         success: function (data) {
-            console.log(data.msg);;
+            //console.log("!!!!!!!"+data);;
         },
-        data: sale
+
     });
+
+
+    $.ajax({
+      url: queryURL,
+      type: 'GET',
+      crossDomain: true,
+      dataType: 'json',
+      error: function(error) {
+         console.log('***error***:' + error);
+       }
+    })
+    .done(function(response) {
+      // console.log(response);
+    //   $(".metric1").html("<p>" + response[0].metric1 + "</p>");
+    //   $(".metric2").html(response[0].metric2)
+    //   $(".metric3").html(response[0].metric3)
+          Object.keys(response).forEach(function(key) {
+              var saleObj = response[key]; 
+              // console.log("^^^^^^"+saleObj["salesperson"]);
+              $("#running_employee_total").append("<p>"+saleObj["salesperson"]+"</p>");
+
+              //>>>Not Working
+              // for (var i = 0; i < saleObj["salesperson"].length; i++){
+              //   if (employeeNameInput == saleObj["salesperson"][i] ){
+              //     console.log("()()()()()"+saleObj["salesperson"][i]);
+              //     // $("#running_employee_total").append("<p>"+saleObj[i]["salesperson"]+"</p>");
+              //   }
+              // }
+
+          });
+    });
+
+
+
+  // End newSale function
   }
-
+  //Call the newSale Function
   newSale();
+  //End isNaN
+  }
+// End submit
+});
 
+// bottom of document ready
 });
 
 
 
 
 
-
-// bottom
