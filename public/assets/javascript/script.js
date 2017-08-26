@@ -6,8 +6,11 @@ $(document).ready(function(){
 // var queryURL = "https://market-pro-2017.herokuapp.com/api/sales";
 var queryURL = "http://localhost:3000/api/sales";
 
+ $("#submitSales").on("submit", function() {
 
-    $("#submitSales").on("submit", function() {
+
+  event.preventDefault()
+
 
       event.preventDefault();
 
