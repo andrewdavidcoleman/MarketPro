@@ -9,15 +9,46 @@ $.ajax({
   crossDomain: true,
   dataType: 'json',
   error: function(error) {
-     console.log('Failed!');
-     console.log(error);
+     console.log('***error***:' + error);
    }
 })
 .done(function(response) {
   console.log(response);
   $(".metric1").html("<p>" + response[0].metric1 + "</p>");
-  $(".metric2").html(response[0].metric2)
-  $(".metric3").html(response[0].metric3)
+  $(".metric2").html("<p>" + response[0].metric2 + "</p>")
+  $(".metric3").html("<p>" + response[0].metric3 + "</p>")
 });
 
-$(".metric1").html()
+$(".submit").click(function() {
+
+  event.preventDefault()
+
+  function newSale() {
+    var sale = {
+     salesperson: $(".name-input").val(),
+     metric1: $(".metric1-input").val(),
+     metric2: $(".metric2-input").val(),
+     metric3: $(".metric3-input").val()
+    };
+
+    $.ajax({
+        url: 'http://localhost:3000/api/sales',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);;
+        },
+        data: sale
+    });
+  }
+
+  newSale();
+
+});
+
+
+
+
+
+
+// bottom
