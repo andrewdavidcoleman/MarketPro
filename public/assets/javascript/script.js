@@ -105,7 +105,7 @@ var queryURL = "http://localhost:3000/api/sales";
               // var isTom = element[key].toString().indexOf("Tom Tom");
               var isTom = element["salesperson"];
               //console.log(isTom);
-              if(isTom == "Tom Tom") {
+              if(isTom == employeeNameInput ) {
                 //console.log(isTom);
                 //adding the objects
                 var metricsAddedValue = element["metric1"]+ element["metric2"]+element["metric3"];
@@ -120,24 +120,6 @@ var queryURL = "http://localhost:3000/api/sales";
                      $("#running_employee_total").append("<p>"+total+"</p>");
                      //console.log(total);
 
-        //   $(".metric1").html("<p>" + response[0].metric1 + "</p>");
-        //   $(".metric2").html(response[0].metric2)
-        //   $(".metric3").html(response[0].metric3)
-              Object.keys(response).forEach(function(key) {
-                  var saleObj = response[key]; 
-                  //console.log("^^^^^^"+saleObj);
-
-                  //$("#running_employee_total").append("<p>"+saleObj["metric1"]+"</p>");
-
-                  //>>>Not Working
-                  // for (var i = 0; i < saleObj["salesperson"].length; i++){
-                  //   if (employeeNameInput == saleObj["salesperson"][i] ){
-                  //     console.log("()()()()()"+saleObj["salesperson"][i]);
-                  //     //$("#running_employee_total").append("<p>"+saleObj[i]["salesperson"]+"</p>");
-                  //   }
-                  // }
-
-              });
 
         //end ajax loop
         });
