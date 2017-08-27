@@ -3,5 +3,13 @@ module.exports = function(sequelize, DataTypes) {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING
   });
+
+
+  People.associate = function(models) {
+    People.hasMany(models.Sales, {
+
+    }); 
+  };
+
   return People;
 };

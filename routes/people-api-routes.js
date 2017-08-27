@@ -5,16 +5,28 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the todos
-  app.get("/api/people", function(req, res) {
-    db.People.findAll({}).then(function(dbPeople) {
-      res.json(dbPeople);
+  // GET route for getting all of the 
+  app.get("/api/people/", function(req, res) {
+    db.People.findAll({
+        include: [db.Sales]
+    }).then(function(dbPeople) {
+        res.json(dbPeople);
+    });
+  });
+
+  app.get("api/people/:id", function(req, res){
+    db.People.findOne({
+      where: {
+          id: req.params.id
+      },
+      include: [db.Sales]
+    }).then(function(dbPeople){
+        res.json(dbPeople);
     });
   });
 
   // POST route for adding new salesperson to the DB
   app.post("/api/people", function(req, res) {
-
     db.People.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName
