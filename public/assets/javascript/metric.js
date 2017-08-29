@@ -15,11 +15,17 @@ $(document).ready(function(){
 	     crossDomain: true,
 	     dataType: 'json',
 	     success: function(response){
-               response.forEach(function(element){
-                    for( key in response){
-                         console.log("()()()()"+ response);
+
+               for(key in response){
+                    var id = response["People_Id"];
+                    var firstName = response["firstName"];
+                    var lastName = response["lastName"];
+                    if(peopleId = response["People_Id"]){
+                         $("#name").html(firstName+" "+lastName);
                     }
                }
+           
+
           }
      });
 
