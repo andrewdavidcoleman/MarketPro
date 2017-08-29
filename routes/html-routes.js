@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   //dashboard leads to sales tracker page
-  app.get("/test", function(req, res) {
+  app.get("/dashboard", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/test.html"));
   });
 
