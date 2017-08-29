@@ -16,11 +16,11 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/sales/:id", function(req, res) {
+  app.get("/api/sales/:People_Id", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Sales.findOne({
+    db.Sales.findAll({
       where : {
-        id: req.params.id
+        People_Id: req.params.People_Id
       },
       include: [db.People]
     }).then(function(dbSales) {
@@ -28,6 +28,9 @@ module.exports = function(app) {
       res.json(dbSales);
     });
   });
+
+
+
 
   // POST route for adding new salesperson to the DB
   app.post("/api/sales", function(req, res) {

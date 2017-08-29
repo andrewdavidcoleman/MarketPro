@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 
 		firstName: {
-			type: DataTypes.STRING
+			type: DataTypes.STRING,
 			allowNull: false,
       		validate: {
         		len: [1]
@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 
 		lastName: {
-			type: DataTypes.STRING
+			type: DataTypes.STRING,
 			allowNull: false,
       		validate: {
         		len: [1]
@@ -46,11 +46,23 @@ module.exports = function(sequelize, DataTypes) {
 		}
 
 
+	},
+	{
+		classMethods: {
+			generateHash: function (password) {
+				return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+			}
+
+		},
+	  	instanceMethods: {
+	    		validPassword: function (password) {
+	     		return bcrypt.compareSync(password, this.password);
+	    		}
+	  	}
+
 	});
 
   People.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     // People.hasMany(models.Sales, {onDelete: "cascade"});
     models.People.hasMany(models.Sales, { foreignKey: 'People_Id'});
   }

@@ -14,16 +14,19 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/people/:id", function(req, res){
+  app.get("/api/people/:People_Id", function(req, res) {
+    // findAll returns all entries for a table when used with no options
     db.People.findOne({
-      where: {
-          id: req.params.id
+      where : {
+        People_Id: req.params.People_Id
       },
       include: [db.Sales]
-    }).then(function(dbPeople){
-        res.json(dbPeople);
+    }).then(function(dbPeople) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbPeople);
     });
   });
+
 
   // POST route for adding new salesperson to the DB
   app.post("/api/people", function(req, res) {
