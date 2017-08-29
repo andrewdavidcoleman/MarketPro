@@ -24,6 +24,9 @@ $(document).ready(function(){
           data: person,
           success: function (data) {
             console.log(data);
+          },
+          error: function(error) {
+            console.log(error);
           }
       });
       // End newPerson function
@@ -61,6 +64,9 @@ $(document).ready(function(){
             data: sale,
             success: function (data) {
               console.log(data);
+            },
+            error: function(error) {
+              console.log(error);
             }
         });
 
