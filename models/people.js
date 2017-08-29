@@ -1,7 +1,51 @@
 module.exports = function(sequelize, DataTypes) {
 	var People = sequelize.define("People", {
-		firstName: DataTypes.STRING,
-		lastName: DataTypes.STRING
+		userName:{
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true,
+			validate: {
+				isUnique: function (value, next) {
+					var self = this;
+					User.find({ where: { username: value } }).then(function (user) {
+						// reject if a different user wants to use the same username
+						if (user && self.id !== user.id) {
+							return next('username already in use!');
+						}
+						return next();
+					}).catch(function (err) {return next(err);});
+				}
+			}
+
+		},
+
+		password: {
+	  		type: DataTypes.STRING,
+	  		allowNull:false
+		},
+
+		firstName: {
+			type: DataTypes.STRING
+			allowNull: false,
+      		validate: {
+        		len: [1]
+      		}
+		},
+
+		lastName: {
+			type: DataTypes.STRING
+			allowNull: false,
+      		validate: {
+        		len: [1]
+      		}
+		},
+
+		People_Id: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		}
+
+
 	});
 
   People.associate = function(models) {
