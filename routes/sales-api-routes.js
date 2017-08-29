@@ -36,7 +36,8 @@ module.exports = function(app) {
     db.Sales.create({
       metric1: req.body.metric1,
       metric2: req.body.metric2,
-      metric3: req.body.metric3
+      metric3: req.body.metric3,
+      People_Id: req.body.People_Id
     }).then(function(dbSales) {
       res.json(dbSales);
     });

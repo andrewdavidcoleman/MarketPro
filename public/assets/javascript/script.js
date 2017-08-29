@@ -74,7 +74,7 @@ $(document).ready(function(){
                             }
                         }
                     });
-                //End of Success
+                //End of Done
                 });
                 //$("#running_employee_total").append("<p>"+total+"</p>");
                   //console.log(total);

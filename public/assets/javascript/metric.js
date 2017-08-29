@@ -21,9 +21,10 @@ $(document).ready(function(){
      	  			var id = data["id"];
      	  			var firstName = data["firstName"];
      	  			var lastName = data["lastName"];
-     	  			//console.log(id);
      	  			if(peopleId = data["id"]){
      	  				$("#name").html(firstName+" "+lastName);
+     	  				//console.log("data key: " + data["id"]);
+     	  				//console.log("peopleId : " + peopleId);
      	  			}
      	  		}
      	  	});
@@ -40,56 +41,44 @@ $(document).ready(function(){
 
      	if (isNaN(a) || isNaN(b) || isNaN(c) ){
           	return false; 
-      	} else {
-	        	var sale = {
-	          // salesperson: $(".name-input").val().trim(),
-		          metric1: $(".metric1-input").val().trim(),
-		          metric2: $(".metric2-input").val().trim(),
-		          metric3: $(".metric3-input").val().trim(),
-		          personId: peopleId,
-		          PersonId: peopleId,
-		          personid: peopleId,
-		          Person: peopleId
-	          };
+      	}
 
-	          $.ajax({
-	          	url: 'http://localhost:3000/api/sales',
-	               type: 'post',
-	               dataType: 'json',
-	               data: sale,
-	               error: function(error){
-	               	console.log(error);
-	               }
-	          })
-	          .done(function(data){
-	          	//console.log(typeof data);
-	          	Object.keys(data).forEach(function(key) {
-	          		var showResults = data[key];
-	          		console.log(showResults[""]);
-	          		//console.log(showResults["metric1"] + " " + showResults["PersonId"] + "\n");
-	          		// for(key in element){
-	          		// 	var m1 = element["metric1"];
-	          		// 	var m2 = element["metric2"];
-	          		// 	var m3 = element["metric3"];
-	          		// 	var PID = element["PersonId"];
-	          		// }
-	          	});
-	          });
-	          // });
-	               // $.ajax({
-	               //      url: queryURL,
-	               //      type: 'GET',
-	               //      crossDomain: true,
-	               //      dataType: 'json',
-	               //      error: function(error) {
-	               //        //console.log('***error***:' + error);
-	               //      }
-	               // }).done(function(response) {
+        	var sale = {
+	          metric1: $(".metric1-input").val().trim(),
+	          metric2: $(".metric2-input").val().trim(),
+	          metric3: $(".metric3-input").val().trim(),
+	         	People_Id: peopleId
+          };
 
-	          //End of AJAX
-	      	// });
-	     //End of if statement
-	     }
+          $.ajax({
+          	url: 'http://localhost:3000/api/sales',
+               type: 'post',
+               dataType: 'json',
+               data: sale,
+               error: function(error){
+               	console.log(error);
+               }
+          })
+          .done(function(data){
+          	console.log(typeof data);
+          	Object.keys(data).forEach(function(key) {
+          		var showResults = data[key];
+     			console.log("dataKey: " + showResults);
+          		// console.log(
+          		// 	"Metrics1: " +showResults["metric1"] + "\n" + 
+          		// 	"Metrics2: " + showResults["metric2"] + "\n" +
+          		// 	"Metrics3: " + showResults["metric3"] + "\n" +
+          		// 	"People_Id: " + showResults["People_Id"] + "\n"
+          		// 	);
+          		// for(key in element){
+          		// 	var m1 = element["metric1"];
+          		// 	var m2 = element["metric2"];
+          		// 	var m3 = element["metric3"];
+          		// 	var PID = element["PersonId"];
+          		// }
+          	});
+          });
+
 	//End of submit form
 	});
 //End of document ready
