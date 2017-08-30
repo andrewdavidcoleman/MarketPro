@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	console.log("letsago");
+	console.log("start");
 
 	var queryURL = "http://localhost:3000/api/people";
 	// var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
