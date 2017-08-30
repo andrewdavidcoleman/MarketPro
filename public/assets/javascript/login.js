@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	console.log(letsago);
-
+	console.log("up");
 	console.log("start");
 
 	var queryURL = "http://localhost:3000/api/people";
