@@ -9,7 +9,7 @@ $(document).ready(function(){
 	}
 
 	$.get("api/sales/"+ peopleId, function(data){
-		console.log(data[0].metric1);
+		console.log(data);
 
 		var m1 = 0;
 		var m2 = 0;
@@ -25,6 +25,7 @@ $(document).ready(function(){
 		m3 += data[i].metric3;
 		}
 
+		$("#name").html(data[0].Person.firstName + " " + data[0].Person.lastName);
 		$(".metric1").html(m1);
 		$(".metric2").html(m2);
 		$(".metric3").html(m3);
@@ -37,7 +38,7 @@ $(document).ready(function(){
 
 		var a = $(".metric1-input").val().trim();
     var b = $(".metric2-input").val().trim();
-    var c = $(".metric2-input").val().trim();
+    var c = $(".metric3-input").val().trim();
 
    	if (isNaN(a) || isNaN(b) || isNaN(c) ){
     	return false;
@@ -50,16 +51,6 @@ $(document).ready(function(){
      	People_Id: peopleId
     };
 
-    // $.ajax({
-    // 	url: 'http://localhost:3000/api/sales',
-    //  	type: 'post',
-    //  	dataType: 'json',
-    //  	data: sale,
-    //  	error: function(error){
-    //  		console.log(error);
-    //  	},
-    //  	success:
-
 			$.post("/api/sales", sale, function(){
       	$.get("api/sales/"+ peopleId, function(data){
 					console.log(data);
@@ -68,10 +59,10 @@ $(document).ready(function(){
 					var m3 = 0;
 
 					for ( var i = 0; i < data.length; i++ ){
-					    m1 += data[i].metric3;
+					    m1 += data[i].metric1;
 					}
 					for ( var i = 0; i < data.length; i++ ){
-					    m2 += data[i].metric3;
+					    m2 += data[i].metric2;
 					}
 					for ( var i = 0; i < data.length; i++ ){
 					    m3 += data[i].metric3;
