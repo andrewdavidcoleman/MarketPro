@@ -9,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
 				isUnique: function (value, next) {
 					var self = this;
 					User.find({ where: { username: value } }).then(function (user) {
-						// reject if a different user wants to use the same username
 						if (user && self.id !== user.id) {
 							return next('username already in use!');
 						}
@@ -65,7 +64,10 @@ module.exports = function(sequelize, DataTypes) {
 
   People.associate = function(models) {
     // People.hasMany(models.Sales, {onDelete: "cascade"});
-    models.People.hasMany(models.Sales, { foreignKey: 'People_Id'});
+    models.People.hasMany(models.Sales, {
+			foreignKey: 'People_Id',
+			onDelete: "cascade"
+		});
   }
 
   return People;
