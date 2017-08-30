@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	console.log(letsago);
 
 	console.log("letsago");
 
@@ -81,7 +82,7 @@ $(document).ready(function() {
      		return false;
 
      	} else {
-     		$.get(queryURL, function(data){
+     		$.get("/api/people", function(data){
      			for (key in data){
      				for ( var i =0; i<data.length; i++){
      					if ( addUsernameInput == data[i].userName ){
