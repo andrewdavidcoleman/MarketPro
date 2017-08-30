@@ -1,9 +1,13 @@
 $(document).ready(function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	console.log("letsago");
 =======
 
 >>>>>>> master
+=======
+	console.log("letsago");
+>>>>>>> 9b346b222c9d26063c5f79e3fb93912f60c3e910
 	// var queryURL = "http://localhost:3000/api/people";
 	var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
 
