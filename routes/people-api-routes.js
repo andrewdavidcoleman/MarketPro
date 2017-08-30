@@ -14,11 +14,24 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/people/:People_Id", function(req, res) {
+  // app.get("/api/people/:People_Id", function(req, res) {
+  //   // findAll returns all entries for a table when used with no options
+  //   db.People.findOne({
+  //     where : {
+  //       People_Id: req.params.People_Id
+  //     },
+  //     include: [db.Sales]
+  //   }).then(function(dbPeople) {
+  //     // We have access to the todos as an argument inside of the callback function
+  //     res.json(dbPeople);
+  //   });
+  // });
+
+    app.get("/api/people/:id", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.People.findOne({
       where : {
-        People_Id: req.params.People_Id
+        id: req.params.id
       },
       include: [db.Sales]
     }).then(function(dbPeople) {
@@ -31,8 +44,10 @@ module.exports = function(app) {
   // POST route for adding new salesperson to the DB
   app.post("/api/people", function(req, res) {
     db.People.create({
+      userName: req.body.userName,
+      password: req.body.password,
       firstName: req.body.firstName,
-      lastName: req.body.lastName
+      lastName: req.body.lastName,
     }).then(function(dbPeople) {
       res.json(dbPeople);
     });

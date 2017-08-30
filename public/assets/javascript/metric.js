@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 	if (url.indexOf("?people_id=") !== -1) {
 		peopleId = url.split("=")[1];
+          //console.log("People Id from browswer pull is: " + peopleId);
 	}
 
 	$.get("api/sales/"+ peopleId, function(data){
@@ -34,7 +35,6 @@ $(document).ready(function(){
   //===============================================================
 	$("#submitSales").on("submit", function() {
 		event.preventDefault();
-		console.log("Submitting new sale");
 
 		var a = $(".metric1-input").val().trim();
     var b = $(".metric2-input").val().trim();
@@ -79,5 +79,9 @@ $(document).ready(function(){
 
 		//End of submit form
 	});
-	//End of document ready
+
+     $("#logout").on("click", function(){
+          window.location.replace("/");
+     })
+//End of document ready
 });
