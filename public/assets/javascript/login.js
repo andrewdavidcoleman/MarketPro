@@ -3,8 +3,8 @@ $(document).ready(function() {
 
 	console.log("letsago");
 
-	// var queryURL = "http://localhost:3000/api/people";
-	var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
+	var queryURL = "http://localhost:3000/api/people";
+	// var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
 
 	var people_id;
 
@@ -82,20 +82,20 @@ $(document).ready(function() {
      		return false;
 
      	} else {
-     		$.get("/api/people", function(data){
-     			for (key in data){
-     				for ( var i =0; i<data.length; i++){
-     					if ( addUsernameInput == data[i].userName ){
-     						$("#messages").html("Username already exists.");
-     						return false;
-     					} else {
-     						$.post("/api/people", newUser, function() {
-									console.log("Added: " + newUser);
+     	// 	$.get(queryURL, function(data){
+     	// 		for (key in data){
+     	// 			for ( var i =0; i<data.length; i++){
+     	// 				if ( addUsernameInput == data[i].userName ){
+     	// 					$("#messages").html("Username already exists.");
+     	// 					return false;
+     	// 				} else {
+     						$.post("/api/people", newUser, function(res) {
+									console.log("Added: " + res);
 								});
-     					}
-     				}
-     			}
-     		});
+     				// 	}
+     			// 	}
+     		// 	}
+     	// 	});
      	}
 
 	});
