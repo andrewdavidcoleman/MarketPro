@@ -21,7 +21,7 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">MarketPro</i></a>
 
                 <ul class="right hide-on-med-and-down">
-                  <li><a href="https://techcrunch.com/" target="_blank">News</a></li>
+                  <li><a id="logout">logout</a></li>
                 </ul>
               </div>
             </div>
@@ -48,23 +48,23 @@
           <h1></h1>
           <div>
 
-    <table id="submitSales" class="" action="index.html" method="post">
-      <div id="name"></div>
+    <form id="submitSales" class="" action="index.html" method="post">
+      Signed In As: <div id="employeeName"></div><br>
       New Sales Product 1: <input class="metric1-input" type="text" name="metric1"  required /><br>
       New Sales Product 2: <input class="metric2-input" type="text" name="metric2"  required /><br>
       New Sales Product 3: <input class="metric3-input" type="text" name="metric3"  required /><br>
       <input class="submit" type="submit" name="submit" value="submit">
-    </table>
+    </form>
     <div class="metric1" height="100px;" width="100px;">
-      <p>CURRENT SALES PRODUCT 1:</p>
+      <p>CURRENT SALES PRODUCT 1:</p><div id="m1"></div>
     </div>
 
     <div class="metric2">
-      <p>CURRENT SALES PRODUCT 2:</p>
+      <p>CURRENT SALES PRODUCT 2:</p><div id="m2"></div>
     </div>
 
     <div class="metric3">
-      <p>CURRENT SALES PRODUCT 3:</p>
+      <p>CURRENT SALES PRODUCT 3:</p><div id="m3"></div>
     </div>
 
     <div id="running_employee_total">

@@ -21,8 +21,6 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">MarketPro</i></a>
 
                 <ul class="right hide-on-med-and-down">
-                  <li><a href="add a link to another page here" target="_blank">About</a></li>
-                  <li><a href="add a link to another page here" target="_blank">Contact</a></li>
                   <li><a href="https://techcrunch.com/" target="_blank">News</a></li>
                 </ul>
               </div>
@@ -59,9 +57,27 @@
                         Login
                 </button>
                 <label class="label-icon" for="search"><i class="material-icons">Enter Your Name</i></label>
-                <i class="material-icons">close</i>
+                <a id="addUser"><i class="material-icons">Create Account</i></a>
               </div>
             </form>
+            <!--####################################################################-->
+              <br>
+              <form id="add-user-form" class="hide" style="background-color: white; color:black; height: 300px; font-color:black;">
+                  <input placeholder="Enter Frist Name" id="add-firstName"  type="text" required />
+                  <input placeholder="Enter Last Name" id="add-lastName"  type="text" required />
+                  <input placeholder="Enter Username" id="add-userName" type="text" requried />
+                  <input placeholder="Enter Password" id="add-password" type="password" required />
+                  <input placeholder="Confirm Password" id="confirm-password" type="password" required />
+
+                  
+                  <button type="submit" class="btn btn-success">
+                          Add Account
+                  </button>
+                  <br>
+                 <div id="messages" width="300px" heigh="50px" style="color: yellow"></div>
+              </form>
+              <br>
+
           </div>
         </div>
 

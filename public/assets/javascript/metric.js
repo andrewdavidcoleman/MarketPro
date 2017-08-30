@@ -9,48 +9,18 @@ $(document).ready(function(){
           //console.log("People Id from browswer pull is: " + peopleId);
 	}
 
-     $.get("api/sales/"+ peopleId, function(data){
-                         var m1 = 0;
-                         var m2 = 0;
-                         var m3 = 0;
+     $.get("api/people/"+ peopleId, function(data){
+          var firstName = "";
+          var lastName = "";
 
-                         for ( var i = 0; i < data.length; i++ ){
-                              m1 += data[i].metric3;
-                         }
-                         for ( var i = 0; i < data.length; i++ ){
-                              m2 += data[i].metric3;
-                         }                         
-                         for ( var i = 0; i < data.length; i++ ){
-                              m3 += data[i].metric3;
-                         }
-                         
-                         $("#employee-total").html(
-                              "Total for Metric1: " + m1 + "\n" +
-                              "Total for Metric1: " + m2 + "\n" +
-                              "Total for Metric1: " + m3
-                         );
+          for (key in data ){
+               firstName = data["firstName"];
+               lastName = data["lastName"];
+               $('#employeeName').html(firstName + " " + lastName);
+          }
 
-                    });
+     });
 
-	// $.ajax({
-	// 	url: 'http://localhost:3000/api/people/' + peopleId,
-	//      type: 'GET',
-	//      crossDomain: true,
-	//      dataType: 'json',
-	//      success: function(response){
-
- //               for(key in response){
- //                    var id = response["People_Id"];
- //                    var firstName = response["firstName"];
- //                    var lastName = response["lastName"];
- //                    if(peopleId = response["People_Id"]){
- //                         $("#name").html(firstName+" "+lastName);
- //                    }
- //               }
-           
-
- //          }
- //     });
  //     //===============================================================
      //===============================================================
 	$("#submitSales").on("submit", function() {
@@ -88,20 +58,24 @@ $(document).ready(function(){
                          var m3 = 0;
 
                          for ( var i = 0; i < data.length; i++ ){
-                              m1 += data[i].metric3;
+                              m1 += data[i].metric1;
                          }
                          for ( var i = 0; i < data.length; i++ ){
-                              m2 += data[i].metric3;
+                              m2 += data[i].metric2;
                          }                         
                          for ( var i = 0; i < data.length; i++ ){
                               m3 += data[i].metric3;
                          }
                          
-                         $("#employee-total").html(
-                              "Total for Metric1: " + m1 + "\n" +
-                              "Total for Metric1: " + m2 + "\n" +
-                              "Total for Metric1: " + m3
-                         );
+                         // $("#employee-total").html(
+                         //      "Total for Metric1: " + m1 + "\n" +
+                         //      "Total for Metric1: " + m2 + "\n" +
+                         //      "Total for Metric1: " + m3
+                         // );
+
+                         $('#m1').html(m1);
+                         $('#m2').html(m2);
+                         $('#m3').html(m3);
 
                     });
                }
@@ -110,5 +84,9 @@ $(document).ready(function(){
 
 	//End of submit form
 	});
+
+     $("#logout").on("click", function(){
+          window.location.replace("/");
+     })
 //End of document ready
 });
