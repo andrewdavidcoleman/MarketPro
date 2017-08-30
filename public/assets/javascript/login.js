@@ -26,7 +26,7 @@ $(document).ready(function() {
 
      	function checkForLetters(inputtxt){ 
      		var letters = /^[A-Za-z]+$/;  
-     		if(inputtxt.value.match(letters)){  
+     		if(inputtxt.match(letters)){  
      			return true;  
      		} else {  
      			$("#messages").html("first and last name must contain letters only");
