@@ -4,18 +4,9 @@ module.exports = function(sequelize, DataTypes) {
 		userName:{
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: true,
 			validate: {
-				isUnique: function (value, next) {
-					var self = this;
-					User.find({ where: { username: value } }).then(function (user) {
-						if (user && self.id !== user.id) {
-							return next('username already in use!');
-						}
-						return next();
-					}).catch(function (err) {return next(err);});
-				}
-			}
+        			len: [1]
+      		}
 
 		},
 
@@ -42,23 +33,9 @@ module.exports = function(sequelize, DataTypes) {
 
 		People_Id: {
 			type: DataTypes.INTEGER,
-			allowNull: false
+			// allowNull: false
 		}
 
-
-	},
-	{
-		classMethods: {
-			generateHash: function (password) {
-				return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-			}
-
-		},
-	  	instanceMethods: {
-	    		validPassword: function (password) {
-	     		return bcrypt.compareSync(password, this.password);
-	    		}
-	  	}
 
 	});
 
