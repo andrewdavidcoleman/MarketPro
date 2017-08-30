@@ -15,7 +15,7 @@ $(document).ready(function() {
 		var addLastNameInput = $("#add-lastName").val().trim();
 		var addUsernameInput = $("#add-userName").val().trim();
      	var addPasswordInput = $("#add-password").val().trim();
-     	var confirmAddPasswordInput = $("#confirm-password").val().trim(); 
+     	var confirmAddPasswordInput = $("#confirm-password").val().trim();
 
      	var newUser = {
      		userName: addUsernameInput,
@@ -24,15 +24,15 @@ $(document).ready(function() {
      		lastName: addLastNameInput,
      	};
 
-     	function checkForLetters(inputtxt){ 
-     		var letters = /^[A-Za-z]+$/;  
-     		if(inputtxt.match(letters)){  
-     			return true;  
-     		} else {  
+     	function checkForLetters(inputtxt){
+     		var letters = /^[A-Za-z]+$/;
+     		if(inputtxt.match(letters)){
+     			return true;
+     		} else {
      			$("#messages").html("first and last name must contain letters only");
-     			return false;  
-     		}  
-	  	}  
+     			return false;
+     		}
+	  	}
 
      	//verify length for password
      	for (var i =0; i < addPasswordInput.length;  i++){
@@ -74,13 +74,13 @@ $(document).ready(function() {
      	//verify passwords match
      	if( addPasswordInput !== confirmAddPasswordInput) {
      		$('#messages').html("Passwords do not match");
-     		return false; 
-     		
+     		return false;
+
      	} else {
      		$.get("api/people", function(data){
      			for (key in data){
      				for ( var i =0; i<data.length; i++){
-     					if ( addUsernameInput == data[i].userName ){     						
+     					if ( addUsernameInput == data[i].userName ){
      						$("#messages").html("Username already exists.");
      						return false;
      					} else {
