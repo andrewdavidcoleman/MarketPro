@@ -9,26 +9,50 @@ $(document).ready(function(){
           //console.log("People Id from browswer pull is: " + peopleId);
 	}
 
-	$.ajax({
-		url: 'http://localhost:3000/api/people/' + peopleId,
-	     type: 'GET',
-	     crossDomain: true,
-	     dataType: 'json',
-	     success: function(response){
+     $.get("api/sales/"+ peopleId, function(data){
+                         var m1 = 0;
+                         var m2 = 0;
+                         var m3 = 0;
 
-               for(key in response){
-                    var id = response["People_Id"];
-                    var firstName = response["firstName"];
-                    var lastName = response["lastName"];
-                    if(peopleId = response["People_Id"]){
-                         $("#name").html(firstName+" "+lastName);
-                    }
-               }
+                         for ( var i = 0; i < data.length; i++ ){
+                              m1 += data[i].metric3;
+                         }
+                         for ( var i = 0; i < data.length; i++ ){
+                              m2 += data[i].metric3;
+                         }                         
+                         for ( var i = 0; i < data.length; i++ ){
+                              m3 += data[i].metric3;
+                         }
+                         
+                         $("#employee-total").html(
+                              "Total for Metric1: " + m1 + "\n" +
+                              "Total for Metric1: " + m2 + "\n" +
+                              "Total for Metric1: " + m3
+                         );
+
+                    });
+
+	// $.ajax({
+	// 	url: 'http://localhost:3000/api/people/' + peopleId,
+	//      type: 'GET',
+	//      crossDomain: true,
+	//      dataType: 'json',
+	//      success: function(response){
+
+ //               for(key in response){
+ //                    var id = response["People_Id"];
+ //                    var firstName = response["firstName"];
+ //                    var lastName = response["lastName"];
+ //                    if(peopleId = response["People_Id"]){
+ //                         $("#name").html(firstName+" "+lastName);
+ //                    }
+ //               }
            
 
-          }
-     });
-
+ //          }
+ //     });
+ //     //===============================================================
+     //===============================================================
 	$("#submitSales").on("submit", function() {
 		event.preventDefault();
 
@@ -55,8 +79,31 @@ $(document).ready(function(){
                error: function(error){
                	console.log(error);
                },
-               success: function(date){
-                    window.location.replace("/total_sales?people_id=" + peopleId);
+               success: function(){
+                    //window.location.replace("/total_sales?people_id=" + peopleId);
+
+                    $.get("api/sales/"+ peopleId, function(data){
+                         var m1 = 0;
+                         var m2 = 0;
+                         var m3 = 0;
+
+                         for ( var i = 0; i < data.length; i++ ){
+                              m1 += data[i].metric3;
+                         }
+                         for ( var i = 0; i < data.length; i++ ){
+                              m2 += data[i].metric3;
+                         }                         
+                         for ( var i = 0; i < data.length; i++ ){
+                              m3 += data[i].metric3;
+                         }
+                         
+                         $("#employee-total").html(
+                              "Total for Metric1: " + m1 + "\n" +
+                              "Total for Metric1: " + m2 + "\n" +
+                              "Total for Metric1: " + m3
+                         );
+
+                    });
                }
           //End of AJAX
           });

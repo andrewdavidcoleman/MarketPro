@@ -22,13 +22,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
-  //   //login page
-  // app.get("/login", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
-
-  app.get("/total_sales", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/total_sales.html"));
-  });
-
 };
