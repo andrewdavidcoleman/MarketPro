@@ -5,7 +5,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the 
+  // GET route for getting all of the
   app.get("/api/people/", function(req, res) {
     db.People.findAll({
         include: [db.Sales]

@@ -102,9 +102,8 @@ $(document).ready(function() {
 		event.preventDefault();
 
 		var employeeUsernameInput = $(".username-input").val().trim();
-     	var employeePasswordInput = $(".password-input").val().trim(); 
+     	var employeePasswordInput = $(".password-input").val().trim();
 
-     	// Don't do anything if the name fields hasn't been filled out
      	if (!employeeUsernameInput || !employeePasswordInput) {
      		return;
      		console.log("<><><><> inputs are submitting blank values");
@@ -118,7 +117,7 @@ $(document).ready(function() {
 	  		crossDomain: true,
 	  		error: function(error){
 	  			console.log(error);
-	  			}
+	  		}
 	  		}).done(function(response){
 	  			response.forEach(function(element){
 	  				for( key in element){
@@ -130,10 +129,14 @@ $(document).ready(function() {
 	  					}
 	  				}
 	  			});
-	  		//window.location.replace("/dashboard?people_id=" + people_id);
 	  	//End ajax
      	});
     	//***********************End submit of login form*********************************************************
 	});
+
+	// $(".new-user-button").on("click", function(){
+	// 	$("#new-user-form").show()
+	// });
+
 //End document ready
  });

@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
 	var People = sequelize.define("People", {
 		userName:{
 			type: DataTypes.STRING,
@@ -40,7 +41,10 @@ module.exports = function(sequelize, DataTypes) {
 
   People.associate = function(models) {
     // People.hasMany(models.Sales, {onDelete: "cascade"});
-    models.People.hasMany(models.Sales, { foreignKey: 'People_Id'});
+    models.People.hasMany(models.Sales, {
+			foreignKey: 'People_Id',
+			onDelete: "cascade"
+		});
   }
 
   return People;

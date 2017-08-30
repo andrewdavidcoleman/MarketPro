@@ -33,4 +33,3 @@ Sales.associate = function(models) {
 
   return Sales;
 }
-
