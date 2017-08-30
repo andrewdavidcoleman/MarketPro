@@ -5,33 +5,35 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the people
-  app.get("/api/people", function(req, res) {
+  // GET route for getting all of the
+  app.get("/api/people/", function(req, res) {
     db.People.findAll({
-      include: [db.Sales]
+        include: [db.Sales]
     }).then(function(dbPeople) {
-      res.json(dbPeople);
+        res.json(dbPeople);
     });
   });
 
-  // GET route for getting one of the people
-  app.get("/api/people/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
+  app.get("/api/people/:People_Id", function(req, res) {
+    // findAll returns all entries for a table when used with no options
     db.People.findOne({
-      where: {
-        id: req.params.id
+      where : {
+        People_Id: req.params.People_Id
       },
       include: [db.Sales]
     }).then(function(dbPeople) {
+      // We have access to the todos as an argument inside of the callback function
       res.json(dbPeople);
     });
   });
 
+
   // POST route for adding new salesperson to the DB
   app.post("/api/people", function(req, res) {
-    db.People.create(req.body).then(function(dbPeople) {
+    db.People.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    }).then(function(dbPeople) {
       res.json(dbPeople);
     });
   });

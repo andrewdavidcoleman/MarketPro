@@ -4,41 +4,44 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the sales
+  // // GET route for getting all of the todos
   app.get("/api/sales", function(req, res) {
-    console.log("=============", req.query);
-    var query = {};
-    if (req.query.people_id) {
-      query.PersonId = req.query.people_id
-    }
+
+    // findAll returns all entries for a table when used with no options
     db.Sales.findAll({
-      where: query,
-      include: [db.People]
+      include:[db.People]
     }).then(function(dbSales) {
+      // We have access to the todos as an argument inside of the callback function
       res.json(dbSales);
     });
   });
 
-  app.get("/api/sales/:PersonId", function(req, res) {
-    var idInt = parseInt(req.params.PersonId);
-    console.log("test");
-    var query = {};
-    if (req.query.PersonId) {
-      query.PersonId = req.query.PersonId
-    }
+  app.get("/api/sales/:People_Id", function(req, res) {
+    // findAll returns all entries for a table when used with no options
     db.Sales.findAll({
-      where: {
-        PersonId: idInt
+      where : {
+        People_Id: req.params.People_Id
       },
-      include:[db.People]
+      include: [db.People]
     }).then(function(dbSales) {
+      // We have access to the todos as an argument inside of the callback function
       res.json(dbSales);
     });
   });
+
+
+
 
   // POST route for adding new salesperson to the DB
   app.post("/api/sales", function(req, res) {
-    db.Sales.create(req.body).then(function(dbSales) {
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with the columns from the DB
+    db.Sales.create({
+      metric1: req.body.metric1,
+      metric2: req.body.metric2,
+      metric3: req.body.metric3,
+      People_Id: req.body.People_Id
+    }).then(function(dbSales) {
       res.json(dbSales);
     });
   });

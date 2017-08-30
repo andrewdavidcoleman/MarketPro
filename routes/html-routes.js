@@ -1,3 +1,7 @@
+// *********************************************************************************
+// html-routes.js - this file offers a set of routes for sending users to the various html pages
+// *********************************************************************************
+
 // Dependencies
 // =============================================================
 var path = require("path");
@@ -15,7 +19,7 @@ module.exports = function(app) {
 
   //dashboard leads to sales tracker page
   app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/test.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
 };
