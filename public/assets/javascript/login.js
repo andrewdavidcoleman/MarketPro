@@ -86,7 +86,9 @@ $(document).ready(function() {
      						$("#messages").html("Username already exists.");
      						return false;
      					} else {
-     						$.post(queryURL, newUser);
+     						$.post("/api/people", newUser, function() {
+									console.log("Added: " + newUser);
+								});
      					}
      				}
      			}
