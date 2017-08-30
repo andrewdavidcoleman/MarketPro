@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	// var queryURL = "http://localhost:3000/api/people";
 	var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
 
