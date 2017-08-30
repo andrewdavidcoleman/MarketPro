@@ -9,7 +9,7 @@ $(document).ready(function(){
           //console.log("People Id from browswer pull is: " + peopleId);
 	}
 
-	$.get("api/sales/"+ peopleId, function(data){
+	$.get("/api/sales/"+ peopleId, function(data){
 		console.log(data);
 
 		var m1 = 0;
@@ -52,7 +52,7 @@ $(document).ready(function(){
     };
 
 			$.post("/api/sales", sale, function(){
-      	$.get("api/sales/"+ peopleId, function(data){
+      	$.get("/api/sales/"+ peopleId, function(data){
 					console.log(data);
 					var m1 = 0;
 					var m2 = 0;

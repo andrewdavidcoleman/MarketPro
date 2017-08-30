@@ -78,7 +78,7 @@ $(document).ready(function() {
      		return false;
 
      	} else {
-     		$.get("/api/people", function(data){
+     		$.get(queryURL, function(data){
      			for (key in data){
      				for ( var i =0; i<data.length; i++){
      					if ( addUsernameInput == data[i].userName ){
