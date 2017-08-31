@@ -17,20 +17,21 @@
         <nav class="transparent z-depth-0">
           <div class="nav-wrapper">
             <div class="row">
-              <div class="col s12">
-                <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">MarketPro</i></a>
-
+              <div class="col s10">
+                <a href="index.html" data-activates="mobile-demo" class="home-button"><i class="material-icons">MarketPro</i></a>
+              </div>
+              <div class="col s2">
                 <ul class="right hide-on-med-and-down">
                   <li><a href="https://techcrunch.com/" target="_blank">News</a></li>
                 </ul>
               </div>
             </div>
-            <ul class="side-nav" id="mobile-demo">
+            <!-- <ul class="side-nav" id="mobile-demo">
               <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Sass</a></li>
               <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Components</a></li>
               <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Javascript</a></li>
               <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Mobile</a></li>
-            </ul>
+            </ul> -->
           </div>
         </nav>
       </div>
@@ -51,25 +52,26 @@
             <div class="input-field">
             <!--#####################################################################-->
             <form id="login-form">
-                <input  id="employe-name" class="username-input" type="text" />
+                <input placeholder="Enter username" id="employe-name" class="username-input" type="text" />
                 <input placeholder="Enter password" type="password" class="password-input">
                 <button type="submit" class="btn btn-success">
                         Login
                 </button>
-                <label class="label-icon" for="search"><i class="material-icons">Enter Your Name</i></label>
-                <a id="addUser"><i class="material-icons">Create Account</i></a>
+                <!-- <label class="label-icon" for="search"><i class="material-icons">Enter Your Name</i></label> -->
+                <button type="submit" id="addUser" class="btn btn-success">Create Account</button>
+                <!-- <a id="addUser"><i class="material-icons">Create Account</i></a> -->
               </div>
             </form>
             <!--####################################################################-->
               <br>
               <form id="add-user-form" class="hide" style="background-color: white; color:black; height: 300px; font-color:black;">
-                  <input placeholder="Enter Frist Name" id="add-firstName"  type="text" required />
+                  <input placeholder="Enter First Name" id="add-firstName"  type="text" required />
                   <input placeholder="Enter Last Name" id="add-lastName"  type="text" required />
                   <input placeholder="Enter Username" id="add-userName" type="text" requried />
                   <input placeholder="Enter Password" id="add-password" type="password" required />
                   <input placeholder="Confirm Password" id="confirm-password" type="password" required />
 
-                  
+
                   <button type="submit" class="btn btn-success">
                           Add Account
                   </button>
@@ -112,4 +114,3 @@
       <script src="./assets/javascript/login.js" type="text/javascript"></script>
     </body>
 </html>
-
