@@ -77,11 +77,15 @@ $(document).ready(function(){
       //End of AJAX
     });
 
+		$(".metric1-input").empty();
+    $(".metric2-input").empty();
+    $(".metric3-input").empty();
+
 		//End of submit form
 	});
 
-     $("#logout").on("click", function(){
-          window.location.replace("/");
-     })
-//End of document ready
+ $("#logout").on("click", function(){
+      window.location.replace("/");
+ })
+	//End of document ready
 });
