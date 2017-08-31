@@ -37,7 +37,8 @@ body {background-color:#555;}
 }
 
 #add-user-form input::placeholder{
-  color: blue;
+
+  color: white;
 }
 
 .submit {
