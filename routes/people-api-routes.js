@@ -26,7 +26,6 @@ module.exports = function(app) {
     });
   });
 
-
   // POST route for adding new person to the DB
   app.post("/api/people", function(req, res) {
     db.People.create({
