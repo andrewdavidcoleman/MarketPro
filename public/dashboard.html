@@ -13,60 +13,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
- <div class="navbar-fixed">
-        <nav class="transparent z-depth-0">
-          <div class="nav-wrapper">
-            <div class="row">
-              <div class="col s10">
-                <a href="index.html" data-activates="mobile-demo" class="home-button"><i class="material-icons">MarketPro</i></a>
-              </div>
-              <div class="col s2">
-                <ul class="right hide-on-med-and-down">
-                  <li><a id="logout">logout</a></li>
-                </ul>
-              </div>
+    <div class="navbar-fixed">
+      <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+          <div class="row">
+            <div class="col s10">
+              <a href="index.html" data-activates="mobile-demo" class="home-button"><i class="material-icons">MarketPro</i></a>
             </div>
-           
+            <div class="col s2">
+              <ul class="right hide-on-med-and-down">
+                <li><a id="logout">logout</a></li>
+              </ul>
+            </div>
           </div>
-        </nav>
-      </div>
-
-<section class="video-container">
-        <video autoplay loop id="video-background" muted plays-inline>
-          <source src="assets/css/milky_way.mp4" type="video/mp4">
-          <script type="text/javascript">
-          /* Video speed controlled here*/
-          document.getElementById("video-background").playbackRate = 0.7;
-          </script>
-        </video>
-
-        <div class="callout" style= "text-align: left;">
-          <h5>Please Enter Your Sales for Today:</h5>
-          <br>
-        <div>
-
-          <form id="submitSales" class="" action="index.html" method="post">
-            <div id="name"></div>
-            Item 1 Sales: <input class="metric1-input" type="text" name="metric1"  required /><br>
-            Item 2 Sales: <input class="metric2-input" type="text" name="metric2"  required /><br>
-            Item 3 Sales: <input class="metric3-input" type="text" name="metric3"  required /><br>
-            <input class="submit" type="submit" name="submit" value="Submit">
-          </form>
-          <br>
-          <br>
-            <p>Item 1 Monthly Total: <span class="metric1"></span></p>
-            <p>Item 2 Monthly Total: <span class="metric2"></span></p>
-            <p>Item 3 Monthly Total: <span class="metric3"></span></p>
-
         </div>
+      </nav>
+    </div>
 
-      </section>
+    <section class="video-container">
+      <video autoplay loop id="video-background" muted plays-inline>
+        <source src="assets/css/milky_way.mp4" type="video/mp4">
+        <script type="text/javascript">
+        /* Video speed controlled here*/
+        document.getElementById("video-background").playbackRate = 0.7;
+        </script>
+      </video>
+
+      <div class="callout" style= "text-align: left;">
+      <h5>Please Enter Your Sales for Today:</h5>
+      <br>
+
+      <div>
+        <form id="submitSales" class="" action="index.html" method="post">
+          <div id="name"></div>
+          Item 1 Sales: <input class="metric1-input" type="text" name="metric1"  required /><br>
+          Item 2 Sales: <input class="metric2-input" type="text" name="metric2"  required /><br>
+          Item 3 Sales: <input class="metric3-input" type="text" name="metric3"  required /><br>
+          <input class="submit" type="submit" name="submit" value="Submit">
+        </form>
+        <br>
+        <br>
+          <p>Item 1 Monthly Total: <span class="metric1"></span></p>
+          <p>Item 2 Monthly Total: <span class="metric2"></span></p>
+          <p>Item 3 Monthly Total: <span class="metric3"></span></p>
+      </div>
+    </section>
 
 <!-- Visual Breakpoint Helper for Materialize - http://materializecss.com/ -->
       <div style="position:fixed;bottom:0;left:0;background-color:rgba(0,0,0,0.5);padding:10px;color:#fff;z-index: 99999999;">
-       <!--  <span class="hide-on-med-only hide-on-large-only">Small</span>
-        <span class="hide-on-small-only hide-on-large-only">Tablet</span>
-        <span class="hide-on-small-only hide-on-med-only">Desktop</span> -->
         <script type="text/javascript">
           $(document).ready(function(){
             // MODAL
@@ -88,10 +82,6 @@
       </div>
 
       <script src="./assets/javascript/login.js" type="text/javascript"></script>
-
-
-
-
 
   </body>
 

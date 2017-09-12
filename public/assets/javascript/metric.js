@@ -6,7 +6,6 @@ $(document).ready(function(){
 
 	if (url.indexOf("?people_id=") !== -1) {
 		peopleId = url.split("=")[1];
-          //console.log("People Id from browswer pull is: " + peopleId);
 	}
 
 	$.get("/api/sales/"+ peopleId, function(data){

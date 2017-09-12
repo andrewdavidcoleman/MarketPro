@@ -1,13 +1,3 @@
-/*body {
-  margin: 0;
-  padding: 0;
-  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections
-  background: #333;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-
 /* The only rule that matters */
 #video-background {
 /*  making the video fullscreen  */
@@ -50,4 +40,11 @@ body {background-color:#555;}
     -webkit-transition: .2s ease-out;
     transition: .2s ease-out;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 992px)
+materialize.min.css:6
+html {
+    font-size: 14.5px;
+
 }
