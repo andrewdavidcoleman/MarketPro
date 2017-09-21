@@ -9,11 +9,11 @@
 * Once the user logs in they are presented with a dashboard displaying their cumulative sales totals for 3 different metrics, and a form to input new sales from the day.
 * When they input their new sales, the totals are updated accordingly.
 
-<img src="https://media.giphy.com/media/1094w5zipvV8MU/giphy.gif" height="300"/>
+<img src="https://media.giphy.com/media/FcH6HcGkOlfOM/giphy.gif" height="300"/>
 
 * If the user selects to create a new account on the landing page, they are presented with an input form asking for their first and last name, a username, and password.
 
-<img src="https://media.giphy.com/media/Tc33zVQp4GF4k/giphy.gif" height="300"/>
+<img src="https://media.giphy.com/media/5g7yG1w27Mhzi/giphy.gif" height="300"/>
 
 ### Link
 https://market-pro-2017.herokuapp.com/
