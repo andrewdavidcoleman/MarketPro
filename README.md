@@ -13,7 +13,7 @@
 
 * If the user selects to create a new account on the landing page, they are presented with an input form asking for their first and last name, a username, and password.
 
-![MarketPro gif](https://media.giphy.com/media/5g7yG1w27Mhzi/giphy.gif)
+![MarketPro gif](https://user-images.githubusercontent.com/25711714/30710992-4b8d5b96-9ed5-11e7-99e2-d064a008a08c.gif)
 
 ### Link
 https://market-pro-2017.herokuapp.com/
