@@ -1,5 +1,8 @@
+"use strict";
 $(document).ready(function() {
-	var queryURL = "http://localhost:3000/api/people";
+
+	// var queryURL = "http://localhost:3000/api/people";
+	var queryURL = "https://market-pro-2017.herokuapp.com/api/people"
 
 	var people_id;
 
@@ -7,6 +10,7 @@ $(document).ready(function() {
 	$('#addUser').on("click",function(){
 		$('#add-user-form').removeClass('hide');
 	});
+
 	//*****************************Create Account********************************************
 	$("#add-user-form").on("submit", function(){
 		event.preventDefault();
@@ -15,7 +19,7 @@ $(document).ready(function() {
 		var addLastNameInput = $("#add-lastName").val().trim();
 		var addUsernameInput = $("#add-userName").val().trim();
      	var addPasswordInput = $("#add-password").val().trim();
-     	var confirmAddPasswordInput = $("#confirm-password").val().trim(); 
+     	var confirmAddPasswordInput = $("#confirm-password").val().trim();
 
      	var newUser = {
      		userName: addUsernameInput,
@@ -24,71 +28,19 @@ $(document).ready(function() {
      		lastName: addLastNameInput,
      	};
 
-     	function checkForLetters(inputtxt){ 
-     		var letters = /^[A-Za-z]+$/;  
-     		if(inputtxt.match(letters)){  
-     			return true;  
-     		} else {  
-     			$("#messages").html("first and last name must contain letters only");
-     			return false;  
-     		}  
-	  	}  
-
-     	//verify length for password
-     	for (var i =0; i < addPasswordInput.length;  i++){
-     		if ( addPasswordInput[i] < 6 || addPasswordInput[i] > 20){
-     			$("#messages").html("Password must be between 6 and 20 characters");
-     			return false;
-     		}
-     	}
-
-     	//verify length for username
-     	for (var i =0; i < addUsernameInput.length;  i++){
-     		if ( addUsernameInput[i] < 6 || addUsernameInput[i] > 20){
-     			$("#messages").html("Username must be between 6 and 15 characters");
-     			return false;
-     		}
-     	}
-
-     	//verify length for first name
-     	for (var i =0; i < addfirstNameInput.length;  i++){
-     		if ( addfirstNameInput[i] < 3 || addfirstNameInput[i] > 20){
-     			$("#messages").html("First Name must be between 3 and 12 characters ");
-     			return false;
-     		}
-
-     		checkForLetters(addfirstNameInput);
-     	}
-
-     	//verify length for last name
-     	for (var i =0; i < addLastNameInput.length;  i++){
-     		if ( addLastNameInput[i] < 6 || addLastNameInput[i] > 20){
-     			$("#messages").html("Last name must be between 6 and 20 characts");
-     			return false;
-     		}
-
-     		checkForLetters(addLastNameInput);
-     	}
 
 
      	//verify passwords match
      	if( addPasswordInput !== confirmAddPasswordInput) {
      		$('#messages').html("Passwords do not match");
-     		return false; 
-     		
+     		return false;
+
      	} else {
-     		$.get("api/people", function(data){
-     			for (key in data){
-     				for ( var i =0; i<data.length; i++){
-     					if ( addUsernameInput == data[i].userName ){     						
-     						$("#messages").html("Username already exists.");
-     						return false;
-     					} else {
-     						$.post("api/people", newUser);
-     					}
-     				}
-     			}
+
+     		$.post("/api/people", newUser, function(res) {
+     			$('#add-user-form').addClass('hide');
      		});
+
      	}
 
 	});
@@ -134,9 +86,6 @@ $(document).ready(function() {
     	//***********************End submit of login form*********************************************************
 	});
 
-	// $(".new-user-button").on("click", function(){
-	// 	$("#new-user-form").show()
-	// });
 
 //End document ready
  });
