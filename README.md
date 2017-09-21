@@ -1,4 +1,5 @@
 # MarketPro
+
 ### MarketPro is an internal facing browser based app for tracking sales data of individual salespeople in companies with small sales teams.
 
 * The user is brought to a sign in page where they are prompted to log in or create a new account.
